@@ -6,10 +6,17 @@ describe "as a user", :vcr do
 
     # Then /^"([^"]*)" should contain "([^"]*)"$/ do |dropdown, text|
     #   expect(page).to have_select(dropdown, :options => [text])
+    # # end
+    # within "#bs-example-navbar-collapse-1" do
+    #   select "Fire Nation"
     # end
-    select "Fire Nation", from: :tribe
-    click_on "Search For Members"
-    
+    # click_on "Search For Members"
+
+    within "#bs-example-navbar-collapse-1" do
+      find(text: 'Fire Nation').select_option
+      click_button 'Search For Members'
+    end
+
     expect(current_path).to eq(search_path)
     expect(page).to have_content("20 Results")
 
