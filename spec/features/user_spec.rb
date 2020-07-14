@@ -13,7 +13,8 @@ describe "as a user", :vcr do
     # click_on "Search For Members"
 
     within "#bs-example-navbar-collapse-1" do
-      find(text: 'Fire Nation').select_option
+      # find(text: 'Fire Nation').select_option
+      find(text: 'fire_nation').select_option
       click_button 'Search For Members'
     end
 
