@@ -7,10 +7,20 @@ describe "as a user", :vcr do
     # Then /^"([^"]*)" should contain "([^"]*)"$/ do |dropdown, text|
     #   expect(page).to have_select(dropdown, :options => [text])
     # end
-
+    select "Fire Nation", from: :tribe
     click_on "Search For Members"
-    expect(current_path).to eq(search_path)
     
+    expect(current_path).to eq(search_path)
+    expect(page).to have_content("20 Results")
+
+    within(first(".member")) do
+    expect(page).to have_css(".name")
+    expect(page).to have_css(".photoUrl")
+    expect(page).to have_css(".affiliation")
+    expect(page).to have_css(".allies")
+    expect(page).to have_css(".enemies")
+  end
+
   end
 end
 
