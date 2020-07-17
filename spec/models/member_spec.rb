@@ -17,8 +17,8 @@ RSpec.describe Member do
     expect(member.allies).to be_a(Array)
     expect(member.allies[0]).to eq("Fire Nation")
     expect(member.enemies[0]).to eq("Aang")
-    expect(member.photoUrl).to be_a(String)
-    expect(member.photoUrl).to eq("https://vignette.wikia.nocookie.net/avatar/images/2/24/Afiko.png/revision/latest?cb=20121121024128")
+    expect(member.photo).to be_a(String)
+    expect(member.photo).to eq("https://vignette.wikia.nocookie.net/avatar/images/2/24/Afiko.png/revision/latest?cb=20121121024128")
     expect(member.affiliation).to be_a(String)
     expect(member.affiliation).to eq("Fire Nation")
   end
