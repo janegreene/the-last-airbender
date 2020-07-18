@@ -5,7 +5,9 @@ class AirbenderService
       faraday.params["affiliation"] = 'nation'
     end
 
-    response = conn.get("api/v1/characters?affiliation=#{search_nation}")
+    response = conn.get("api/v1/characters") do
+      conn.params['affiliation'] = search_nation
+    end
     payload = JSON.parse(response.body, symbolize_names: true)
     members = payload.map do |member_data|
       Member.new(member_data)
